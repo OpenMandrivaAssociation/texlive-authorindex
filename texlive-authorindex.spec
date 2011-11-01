@@ -10,7 +10,7 @@ Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/authorindex.doc.t
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(post):	texlive-tlpkg
-Provides:	texlive-authorindex.bin = %{EVRD}
+Requires:	texlive-authorindex.bin
 Conflicts:	texlive-texmf <= 20110705-3
 Conflicts:	texlive-doc <= 20110705-3
 
@@ -30,11 +30,13 @@ requires Perl (version 5 or higher).
     %_texmf_mktexlsr_post
 
 %preun
-    %_texmf_mktexlsr_preun
+    if [ $1 -eq 0 ]; then
+	%_texmf_mktexlsr_pre
+    fi
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mltexlsr_post
+	%_texmf_mktexlsr_post
     fi
 
 #-----------------------------------------------------------------------
