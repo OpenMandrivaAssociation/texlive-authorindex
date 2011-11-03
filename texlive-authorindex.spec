@@ -1,3 +1,9 @@
+# revision 18835
+# category Package
+# catalog-ctan /indexing/authorindex
+# catalog-date 2008-08-10 21:45:45 +0200
+# catalog-license lppl
+# catalog-version undef
 Name:		texlive-authorindex
 Version:	20080810
 Release:	1
@@ -10,7 +16,7 @@ Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/authorindex.doc.t
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(post):	texlive-tlpkg
-Requires:	texlive-authorindex.bin
+Provides:	texlive-authorindex.bin = %{EVRD}
 Conflicts:	texlive-texmf <= 20110705-3
 Conflicts:	texlive-doc <= 20110705-3
 
@@ -49,6 +55,7 @@ requires Perl (version 5 or higher).
 %doc %{_texmfdistdir}/doc/latex/authorindex/README
 %doc %{_texmfdistdir}/doc/latex/authorindex/authorindex.pdf
 %doc %{_texmfdistdir}/doc/latex/authorindex/authorindex.tex
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -63,3 +70,5 @@ pushd %{buildroot}%{_bindir}
 popd
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
