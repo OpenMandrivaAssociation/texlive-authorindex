@@ -1,4 +1,4 @@
-# revision 18835
+# revision 26313
 # category Package
 # catalog-ctan /indexing/authorindex
 # catalog-date 2008-08-10 21:45:45 +0200
@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-authorindex
 Version:	20080810
-Release:	2
+Release:	3
 Summary:	Index citations by author names
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/indexing/authorindex
