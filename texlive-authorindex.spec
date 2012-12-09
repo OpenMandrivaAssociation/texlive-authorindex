@@ -60,3 +60,22 @@ pushd %{buildroot}%{_bindir}
 popd
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
+
+
+%changelog
+* Tue Aug 07 2012 Paulo Andrade <pcpa@mandriva.com.br> 20080810-3
++ Revision: 811964
+- Update to latest release.
+
+* Tue Jan 03 2012 Paulo Andrade <pcpa@mandriva.com.br> 20080810-2
++ Revision: 749437
+- Rebuild to reduce used resources
+
+* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20080810-1
++ Revision: 717871
+- texlive-authorindex
+- texlive-authorindex
+- texlive-authorindex
+- texlive-authorindex
+- texlive-authorindex
+
