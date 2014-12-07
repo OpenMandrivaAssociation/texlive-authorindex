@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-authorindex
 Version:	20080810
-Release:	9
+Release:	10
 Summary:	Index citations by author names
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/indexing/authorindex
