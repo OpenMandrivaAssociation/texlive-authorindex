@@ -1,18 +1,12 @@
-# revision 26313
-# category Package
-# catalog-ctan /indexing/authorindex
-# catalog-date 2008-08-10 21:45:45 +0200
-# catalog-license lppl
-# catalog-version undef
 Name:		texlive-authorindex
-Version:	20190228
+Version:	51757
 Release:	1
 Summary:	Index citations by author names
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/indexing/authorindex
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/authorindex.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/authorindex.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/authorindex.r51757.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/authorindex.doc.r51757.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -29,12 +23,12 @@ on BibTeX being used to handle citations. Additionally, it
 requires Perl (version 5 or higher).
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -49,33 +43,14 @@ requires Perl (version 5 or higher).
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_bindir}
 pushd %{buildroot}%{_bindir}
-    ln -sf %{_texmfdistdir}/scripts/authorindex/authorindex authorindex
+ln -sf %{_texmfdistdir}/scripts/authorindex/authorindex authorindex
 popd
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
-
-
-%changelog
-* Tue Aug 07 2012 Paulo Andrade <pcpa@mandriva.com.br> 20080810-3
-+ Revision: 811964
-- Update to latest release.
-
-* Tue Jan 03 2012 Paulo Andrade <pcpa@mandriva.com.br> 20080810-2
-+ Revision: 749437
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20080810-1
-+ Revision: 717871
-- texlive-authorindex
-- texlive-authorindex
-- texlive-authorindex
-- texlive-authorindex
-- texlive-authorindex
-
