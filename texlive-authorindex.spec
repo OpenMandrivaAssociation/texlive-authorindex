@@ -3,7 +3,7 @@ Version:	51757
 Release:	2
 Summary:	Index citations by author names
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/indexing/authorindex
+URL:		https://www.ctan.org/tex-archive/indexing/authorindex
 License:	LPPL
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/authorindex.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/authorindex.doc.r%{version}.tar.xz
