@@ -1,56 +1,27 @@
-Name:		texlive-authorindex
-Version:	51757
-Release:	2
+%global tl_name authorindex
+%global tl_revision 51757
+
+Name:		texlive-%{tl_name}
+Version:	%{tl_revision}
+Release:	1
 Summary:	Index citations by author names
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/indexing/authorindex
-License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/authorindex.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/authorindex.doc.r%{version}.tar.xz
+License:	lppl
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/authorindex.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/authorindex.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
-Provides:	texlive-authorindex.bin = %{EVRD}
+%texlive_base_requires
+Requires:	texlive(authorindex.bin)
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This package allows the user to create an index of all authors
-cited in a LaTeX document. Each author entry in the index
-contains the pages where these citations occur. Alternatively,
-the package can list the labels of the citations that appear in
-the references rather than the text pages. The package relies
-on BibTeX being used to handle citations. Additionally, it
-requires Perl (version 5 or higher).
+This package allows the user to create an index of all authors cited in
+a LaTeX document. Each author entry in the index contains the pages
+where these citations occur. Alternatively, the package can list the
+labels of the citations that appear in the references rather than the
+text pages. The package relies on BibTeX being used to handle citations.
+Additionally, it requires Perl (version 5 or higher).
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_bindir}/authorindex
-%{_texmfdistdir}/scripts/authorindex/authorindex
-%{_texmfdistdir}/tex/latex/authorindex/authorindex.sty
-%doc %{_texmfdistdir}/doc/latex/authorindex/COPYING
-%doc %{_texmfdistdir}/doc/latex/authorindex/NEWS
-%doc %{_texmfdistdir}/doc/latex/authorindex/README
-%doc %{_texmfdistdir}/doc/latex/authorindex/authorindex.pdf
-%doc %{_texmfdistdir}/doc/latex/authorindex/authorindex.tex
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_bindir}
-pushd %{buildroot}%{_bindir}
-ln -sf %{_texmfdistdir}/scripts/authorindex/authorindex authorindex
-popd
-mkdir -p %{buildroot}%{_datadir}
-cp -fpar texmf-dist %{buildroot}%{_datadir}
