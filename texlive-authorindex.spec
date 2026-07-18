@@ -1,5 +1,6 @@
 %global tl_name authorindex
 %global tl_revision 51757
+%global tl_bin_links authorindex:%{_texmfdistdir}/scripts/authorindex/authorindex
 
 Name:		texlive-%{tl_name}
 Version:	%{tl_revision}
@@ -14,6 +15,8 @@ BuildArch:	noarch
 BuildSystem:	texlive
 Requires:	texlive(authorindex.bin)
 Provides:	texlive(%{tl_name}) = %{tl_revision}
+Provides:	texlive(%{tl_name}.bin) = %{tl_revision}
+Provides:	texlive-%{tl_name}.bin = %{EVRD}
 
 %description
 This package allows the user to create an index of all authors cited in
